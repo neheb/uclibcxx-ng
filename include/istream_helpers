@@ -317,7 +317,7 @@ namespace std{
 					sscanf(temp.c_str(), "%llo", reinterpret_cast<unsigned long long *>(&var) );
 				}else if(stream.flags() & ios_base::hex){
 					if(stream.flags() & ios_base::uppercase){
-						scanf(temp.c_str(), "%llX", reinterpret_cast<unsigned long long *>(&var) );
+						sscanf(temp.c_str(), "%llX", reinterpret_cast<unsigned long long *>(&var) );
 					}else{
 						sscanf(temp.c_str(), "%llx", reinterpret_cast<unsigned long long *>(&var));
 					}
@@ -344,7 +344,7 @@ namespace std{
 					sscanf(temp.c_str(), "%llo", &var );
 				}else if(stream.flags() & ios_base::hex){
 					if(stream.flags() & ios_base::uppercase){
-						scanf(temp.c_str(), "%llX", &var );
+						sscanf(temp.c_str(), "%llX", &var );
 					}else{
 						sscanf(temp.c_str(), "%llx", &var);
 					}

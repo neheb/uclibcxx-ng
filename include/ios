@@ -478,11 +478,11 @@ namespace std{
 		_UCXXEXPORT bool operator!=(const fpos &rhs){
 			return st != rhs.st;
 		}
-		_UCXXEXPORT fpos & operator+(const streamoff & o){
+		_UCXXEXPORT fpos operator+(const streamoff & o){
 			st += o;
 			return *this;
 		}
-		_UCXXEXPORT fpos & operator-(const streamoff & o){
+		_UCXXEXPORT fpos operator-(const streamoff & o){
 			st -= o;
 			return *this;
 		}

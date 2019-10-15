@@ -66,4 +66,4 @@ _UCXXEXPORT const char_traits<wchar_t>::char_type* char_traits<wchar_t>::find(co
 
 #endif
 
-}
+}  // namespace std

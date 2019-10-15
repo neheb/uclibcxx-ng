@@ -39,4 +39,4 @@ extern "C" __cxa_eh_globals* __cxa_get_globals_fast() _UCXX_USE_NOEXCEPT{
 	return &eh_globals;
 }
 
-}
+}  // namespace __cxxabiv1

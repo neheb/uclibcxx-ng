@@ -171,4 +171,4 @@ template <> _UCXXEXPORT basic_filebuf<wchar_t, char_traits<wchar_t> >::int_type
 #endif // __UCLIBCXX_HAS_WCHAR__
 
 
-}
+}  // namespace std

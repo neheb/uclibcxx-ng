@@ -183,7 +183,7 @@ namespace std{
 		return retval;
 	}	
 
-}
+}  // namespace std
 
 
 

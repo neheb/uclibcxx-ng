@@ -109,4 +109,4 @@ template _UCXXEXPORT istream & operator>>(istream & is, string & str);
 
 #endif
 
-}
+}  // namespace std

@@ -57,7 +57,7 @@ namespace std{
 		return mstring.c_str();
 	}
 
-}
+}  // namespace std
 
 #endif
 

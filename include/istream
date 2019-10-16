@@ -55,8 +55,11 @@ namespace std{
 		{
 			basic_ios<charT, traits>::init(sb);
 		}
+#if __cplusplus < 201103L
 		virtual ~basic_istream() { }
-
+#else
+		virtual ~basic_istream() = default;
+#endif
 		class sentry;
 
 		basic_istream<charT,traits>& operator>>(basic_istream<charT,traits>& (*pf)(basic_istream<charT,traits>&));

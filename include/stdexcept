@@ -47,21 +47,33 @@ public:
 
 class _UCXXEXPORT domain_error : public logic_error {
 public:
+#if __cplusplus < 201103L
 	domain_error()  {}
+#else
+	domain_error() = default;
+#endif
 	explicit domain_error(const string& what_arg) : logic_error(what_arg) {}
 	virtual ~domain_error() _UCXX_USE_NOEXCEPT {}
 };
 
 class _UCXXEXPORT invalid_argument : public logic_error {
 public:
+#if __cplusplus < 201103L
 	invalid_argument()  {}
+#else
+	invalid_argument() = default;
+#endif
 	explicit invalid_argument(const string& what_arg) : logic_error(what_arg){}
 	virtual ~invalid_argument() _UCXX_USE_NOEXCEPT {}
 };
 
 class _UCXXEXPORT length_error : public logic_error {
 public:
+#if __cplusplus < 201103L
 	length_error()  {}
+#else
+	length_error() = default;
+#endif
 	explicit length_error(const string& what_arg) : logic_error(what_arg){}
 	virtual ~length_error() _UCXX_USE_NOEXCEPT {}
 };
@@ -87,7 +99,11 @@ public:
 
 class _UCXXEXPORT range_error : public runtime_error{
 public:
+#if __cplusplus < 201103L
 	range_error() {}
+#else
+	range_error() = default;
+#endif
 	explicit range_error(const string& what_arg) : runtime_error(what_arg) {}
 	virtual ~range_error() _UCXX_USE_NOEXCEPT{ }
 };
@@ -95,14 +111,22 @@ public:
 
 class _UCXXEXPORT overflow_error : public runtime_error{
 public:
+#if __cplusplus < 201103L
 	overflow_error() {}
+#else
+	overflow_error() = default;
+#endif
 	explicit overflow_error(const string& what_arg) : runtime_error(what_arg) {}
 	virtual ~overflow_error() _UCXX_USE_NOEXCEPT{}
 };
 
 class _UCXXEXPORT underflow_error : public runtime_error{
 public:
+#if __cplusplus < 201103L
 	underflow_error() {}
+#else
+	underflow_error() = default;
+#endif
 	explicit underflow_error(const string& what_arg) : runtime_error(what_arg) {}
 	virtual ~underflow_error() _UCXX_USE_NOEXCEPT{}
 };

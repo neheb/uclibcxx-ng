@@ -323,6 +323,9 @@ public:
 
 		iterator temp = last;
 
+		if (!count)
+			return first;
+
 		while(last != vector<Ch, A>::end()){
 			*(last - count) = *last;
 			++last;

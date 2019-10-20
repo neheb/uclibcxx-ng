@@ -37,7 +37,7 @@ namespace std{
 	}
 
 
-	_UCXXEXPORT out_of_range::out_of_range() : logic_error(){
+	_UCXXEXPORT out_of_range::out_of_range() _UCXX_USE_NOEXCEPT : logic_error(){
 
 	}
 
@@ -45,7 +45,7 @@ namespace std{
 	
 	}
 
-	_UCXXEXPORT runtime_error::runtime_error() : mstring(){
+	_UCXXEXPORT runtime_error::runtime_error() _UCXX_USE_NOEXCEPT : mstring(){
 
 	}
 

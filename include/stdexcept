@@ -48,9 +48,9 @@ public:
 class _UCXXEXPORT domain_error : public logic_error {
 public:
 #if __cplusplus < 201103L
-	domain_error()  {}
+	domain_error() _UCXX_USE_NOEXCEPT {}
 #else
-	domain_error() = default;
+	domain_error() _UCXX_USE_NOEXCEPT = default;
 #endif
 	explicit domain_error(const string& what_arg) : logic_error(what_arg) {}
 	virtual ~domain_error() _UCXX_USE_NOEXCEPT {}
@@ -59,9 +59,9 @@ public:
 class _UCXXEXPORT invalid_argument : public logic_error {
 public:
 #if __cplusplus < 201103L
-	invalid_argument()  {}
+	invalid_argument() _UCXX_USE_NOEXCEPT {}
 #else
-	invalid_argument() = default;
+	invalid_argument() _UCXX_USE_NOEXCEPT = default;
 #endif
 	explicit invalid_argument(const string& what_arg) : logic_error(what_arg){}
 	virtual ~invalid_argument() _UCXX_USE_NOEXCEPT {}
@@ -70,9 +70,9 @@ public:
 class _UCXXEXPORT length_error : public logic_error {
 public:
 #if __cplusplus < 201103L
-	length_error()  {}
+	length_error() _UCXX_USE_NOEXCEPT {}
 #else
-	length_error() = default;
+	length_error() _UCXX_USE_NOEXCEPT = default;
 #endif
 	explicit length_error(const string& what_arg) : logic_error(what_arg){}
 	virtual ~length_error() _UCXX_USE_NOEXCEPT {}
@@ -80,7 +80,7 @@ public:
 
 class _UCXXEXPORT out_of_range : public logic_error{
 public:
-	out_of_range();
+	out_of_range() _UCXX_USE_NOEXCEPT;
 	explicit out_of_range(const string & what_arg);
 	virtual ~out_of_range() _UCXX_USE_NOEXCEPT {}
 
@@ -90,7 +90,7 @@ class _UCXXEXPORT runtime_error : public exception{
 protected:
 	string mstring;
 public:
-	runtime_error();
+	runtime_error() _UCXX_USE_NOEXCEPT;
 	runtime_error(const string& what_arg);
 
 	virtual ~runtime_error() _UCXX_USE_NOEXCEPT {}
@@ -100,9 +100,9 @@ public:
 class _UCXXEXPORT range_error : public runtime_error{
 public:
 #if __cplusplus < 201103L
-	range_error() {}
+	range_error() _UCXX_USE_NOEXCEPT {}
 #else
-	range_error() = default;
+	range_error() _UCXX_USE_NOEXCEPT = default;
 #endif
 	explicit range_error(const string& what_arg) : runtime_error(what_arg) {}
 	virtual ~range_error() _UCXX_USE_NOEXCEPT{ }
@@ -112,9 +112,9 @@ public:
 class _UCXXEXPORT overflow_error : public runtime_error{
 public:
 #if __cplusplus < 201103L
-	overflow_error() {}
+	overflow_error() _UCXX_USE_NOEXCEPT {}
 #else
-	overflow_error() = default;
+	overflow_error() _UCXX_USE_NOEXCEPT = default;
 #endif
 	explicit overflow_error(const string& what_arg) : runtime_error(what_arg) {}
 	virtual ~overflow_error() _UCXX_USE_NOEXCEPT{}
@@ -123,9 +123,9 @@ public:
 class _UCXXEXPORT underflow_error : public runtime_error{
 public:
 #if __cplusplus < 201103L
-	underflow_error() {}
+	underflow_error() _UCXX_USE_NOEXCEPT {}
 #else
-	underflow_error() = default;
+	underflow_error() _UCXX_USE_NOEXCEPT = default;
 #endif
 	explicit underflow_error(const string& what_arg) : runtime_error(what_arg) {}
 	virtual ~underflow_error() _UCXX_USE_NOEXCEPT{}

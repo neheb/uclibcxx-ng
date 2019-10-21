@@ -33,9 +33,9 @@ namespace std {
 	public:
 		typedef T value_type;
 
-		complex(const T& re = T(), const T& im = T()) : r(re), i(im) {  }
-		complex(const complex& c): r(c.r), i(c.i){  }
-		template<class X> complex(const complex<X>& c): r(c.r), i(c.i){  }
+		_UCXX_CONSTEXPR complex(const T& re = T(), const T& im = T()) : r(re), i(im) {  }
+		_UCXX_CONSTEXPR complex(const complex& c): r(c.r), i(c.i){  }
+		template<class X> _UCXX_CONSTEXPR complex(const complex<X>& c): r(c.r), i(c.i){  }
 
 		inline T real() const{
 			return r;

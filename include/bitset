@@ -33,9 +33,9 @@ namespace std{
 	template <size_t N> class bitset;
 
 
-	template <size_t N> bitset<N> operator&(const bitset<N>&, const bitset<N>&);
-	template <size_t N> bitset<N> operator|(const bitset<N>&, const bitset<N>&);
-	template <size_t N> bitset<N> operator^(const bitset<N>&, const bitset<N>&);
+	template <size_t N> bitset<N> operator&(const bitset<N>&, const bitset<N>&) _UCXX_NOEXCEPT ;
+	template <size_t N> bitset<N> operator|(const bitset<N>&, const bitset<N>&) _UCXX_NOEXCEPT ;
+	template <size_t N> bitset<N> operator^(const bitset<N>&, const bitset<N>&) _UCXX_NOEXCEPT ;
 	template <class charT, class traits, size_t N> basic_istream<charT, traits>& 
 		operator>>(basic_istream<charT, traits>& is, bitset<N>& x);
 
@@ -104,10 +104,10 @@ namespace std{
 			}
 		};
 
-		bitset(){
+		bitset() _UCXX_NOEXCEPT {
 			reset();
 		}
-		bitset(unsigned long val){
+		bitset(unsigned long val) _UCXX_NOEXCEPT {
 			reset();
 			size_t count = sizeof(val) * CHAR_BIT;
 			if(count > N){
@@ -118,7 +118,7 @@ namespace std{
 			}
 		}
 
-		bitset(const bitset & val){
+		bitset(const bitset & val) _UCXX_NOEXCEPT {
 			for(size_t i = 0; i < num_bytes; ++i){
 				data[i] = val.data[i];
 			}
@@ -154,27 +154,27 @@ namespace std{
 			}
 		}
 
-		bitset<N>& operator&=(const bitset<N>& rhs){
+		bitset<N>& operator&=(const bitset<N>& rhs) _UCXX_NOEXCEPT {
 			for(size_t i =0; i < num_bytes; ++i){
 				data[i] &= rhs.data[i];
 			}
 			return *this;
 		}
 
-		bitset<N>& operator|=(const bitset<N>& rhs){
+		bitset<N>& operator|=(const bitset<N>& rhs) _UCXX_NOEXCEPT {
 			for(size_t i =0; i < num_bytes; ++i){
 				data[i] |= rhs.data[i];
 			}
 			return *this;
 		}
-		bitset<N>& operator^=(const bitset<N>& rhs){
+		bitset<N>& operator^=(const bitset<N>& rhs) _UCXX_NOEXCEPT {
 			for(size_t i=0; i < num_bytes; ++i){
 				data[i] ^= rhs.data[i];
 			}
 			return *this;
 		}
 
-		bitset<N>& operator<<=(size_t pos){
+		bitset<N>& operator<<=(size_t pos) _UCXX_NOEXCEPT {
 			for(size_t i = N-1; i >=pos; --i){
 				set(i, test(i - pos));
 			}
@@ -184,7 +184,7 @@ namespace std{
 			return *this;
 		}
 
-		bitset<N>& operator>>=(size_t pos){
+		bitset<N>& operator>>=(size_t pos) _UCXX_NOEXCEPT {
 			for(size_t i = 0; i < (N - pos); ++i){
 				set(i, test(i + pos));
 			}
@@ -194,14 +194,14 @@ namespace std{
 			return *this;
 		}
 
-		bitset<N>& set(){
+		bitset<N>& set() _UCXX_NOEXCEPT {
 			size_t i;
 			for(i = 0; i < N ; ++i){
 				data[byte_num(i)] |= (1<<bit_num(i));
 			}
 			return *this;
 		}
-		bitset<N>& set(size_t pos, int val = true){
+		bitset<N>& set(size_t pos, bool val = true){
 			if(val == true){
 				data[byte_num(pos)] |= (1<<bit_num(pos));
 			}else{
@@ -209,7 +209,7 @@ namespace std{
 			}
 			return *this;
 		}
-		bitset<N>& reset(){
+		bitset<N>& reset() _UCXX_NOEXCEPT {
 			for(size_t i = 0; i < num_bytes; ++i){
 				data[i] = 0;
 			}
@@ -219,13 +219,13 @@ namespace std{
 			data[byte_num(pos)] &= ~(1<<bit_num(pos));
 			return *this;
 		}
-		bitset<N>  operator~() const{
+		bitset<N>  operator~() const _UCXX_NOEXCEPT {
 			bitset<N> retval(*this);
 			retval.flip();
 			return retval;
 		}
 
-		bitset<N>& flip(){
+		bitset<N>& flip() _UCXX_NOEXCEPT {
 			for(size_t i = 0; i < num_bytes; ++i){
 				data[i] =  ~data[i];
 			}
@@ -359,19 +359,19 @@ namespace std{
 	//Non-member functions
 
 
-	template <size_t N> _UCXXEXPORT bitset<N> operator&(const bitset<N>& lhs, const bitset<N>& rhs){
+	template <size_t N> _UCXXEXPORT bitset<N> operator&(const bitset<N>& lhs, const bitset<N>& rhs) _UCXX_NOEXCEPT {
 		bitset<N> retval(lhs);
 		retval &= rhs;
 		return retval;
 	}
 
-	template <size_t N> _UCXXEXPORT bitset<N> operator|(const bitset<N>& lhs, const bitset<N>& rhs){
+	template <size_t N> _UCXXEXPORT bitset<N> operator|(const bitset<N>& lhs, const bitset<N>& rhs) _UCXX_NOEXCEPT {
 		bitset<N> retval(lhs);
 		retval |= rhs;
 		return retval;
 	}
 
-	template <size_t N> _UCXXEXPORT bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs){
+	template <size_t N> _UCXXEXPORT bitset<N> operator^(const bitset<N>& lhs, const bitset<N>& rhs) _UCXX_NOEXCEPT {
 		bitset<N> retval(lhs);
 		retval ^= rhs;
 		return retval;

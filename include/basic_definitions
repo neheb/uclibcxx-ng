@@ -50,10 +50,14 @@
 # if __cplusplus >= 201103L
 #  define _UCXX_NOEXCEPT noexcept
 #  define _UCXX_USE_NOEXCEPT noexcept
+#  define _UCXX_CONSTEXPR constexpr
+#  define _UCXX_USE_CONSTEXPR constexpr
 #  define _UCXX_THROW(_EXCEPTION)
 # else
 #  define _UCXX_NOEXCEPT
 #  define _UCXX_USE_NOEXCEPT throw()
+#  define _UCXX_CONSTEXPR
+#  define _UCXX_USE_CONSTEXPR const
 #  define _UCXX_THROW(_EXCEPTION) throw(_EXCEPTION)
 # endif
 # ifndef _UCXX_NOTHROW

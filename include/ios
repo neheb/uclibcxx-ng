@@ -149,7 +149,7 @@ namespace std{
 		}
 
 		//We are going to wrap stdio so we don't need implementation of the following:
-		inline static bool sync_with_stdio(bool = true) { return true; }
+		static inline bool sync_with_stdio(bool = true) { return true; }
 
 	protected:
 		_UCXXEXPORT ios_base() : mLocale(), mformat(dec | skipws ), mstate(goodbit),

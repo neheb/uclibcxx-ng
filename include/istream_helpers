@@ -101,7 +101,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, bool>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, bool & var)
+		static inline void readin(basic_istream<char, traits >& stream, bool & var)
 		{
 			/* 22.4.2.1.2.4 */
 			basic_string<char, traits > temp;
@@ -142,7 +142,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, short>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, short & var)
+		static inline void readin(basic_istream<char, traits >& stream, short & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -168,7 +168,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, unsigned short>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, unsigned short & var)
+		static inline void readin(basic_istream<char, traits >& stream, unsigned short & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -194,7 +194,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, int>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, int & var)
+		static inline void readin(basic_istream<char, traits >& stream, int & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -220,7 +220,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, unsigned int>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, unsigned int & var)
+		static inline void readin(basic_istream<char, traits >& stream, unsigned int & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -248,7 +248,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, long int>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, long int & var)
+		static inline void readin(basic_istream<char, traits >& stream, long int & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -276,7 +276,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, unsigned long int>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, unsigned long int & var)
+		static inline void readin(basic_istream<char, traits >& stream, unsigned long int & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -304,7 +304,7 @@ namespace std{
 #if !defined(__STRICT_ANSI__) || (__cplusplus >= 201103L)
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, long long>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, long long & var)
+		static inline void readin(basic_istream<char, traits >& stream, long long & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -331,7 +331,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, unsigned long long>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, unsigned long long & var)
+		static inline void readin(basic_istream<char, traits >& stream, unsigned long long & var)
 		{
 			basic_string<char, traits > temp;
 
@@ -360,7 +360,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, float>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, float & var)
+		static inline void readin(basic_istream<char, traits >& stream, float & var)
 		{
 			basic_string<char, traits > temp;
 			temp = _readTokenDecimal( stream);
@@ -371,7 +371,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, double>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, double & var)
+		static inline void readin(basic_istream<char, traits >& stream, double & var)
 		{
 			basic_string<char, traits > temp;
 			temp = _readTokenDecimal( stream);
@@ -381,7 +381,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, long double>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, long double & var)
+		static inline void readin(basic_istream<char, traits >& stream, long double & var)
 		{
 			basic_string<char, traits > temp;
 			temp = _readTokenDecimal( stream);
@@ -393,7 +393,7 @@ namespace std{
 
 	template <class traits> class _UCXXEXPORT __istream_readin<traits, char, void*>{
 	public:
-		inline static void readin(basic_istream<char, traits >& stream, void* & var)
+		static inline void readin(basic_istream<char, traits >& stream, void* & var)
 		{
 			basic_string<char, traits > temp;
 			temp = _readToken( stream);

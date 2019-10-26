@@ -1,3 +1,4 @@
+
 /*	Copyright (C) 2004 Garrett A. Kajmowicz
 
 	This file is part of the uClibc++ Library.
@@ -37,10 +38,10 @@ namespace std {
 		complex(const complex& c): r(c.r), i(c.i){  }
 		template<class X> complex(const complex<X>& c): r(c.r), i(c.i){  }
 
-		inline T real() const{
+		inline _UCXX_CONSTEXPR T real() const{
 			return r;
 		}
-		inline T imag() const{
+		inline _UCXX_CONSTEXPR T imag() const{
 			return i;
 		}
 
@@ -173,40 +174,22 @@ namespace std {
 		return complex<T> (-v.real(), -v.imag());
 	}
 	template<class T> _UCXXEXPORT bool operator==(const complex<T>& ls, const complex<T>& rs){
-		if( ls.real() == rs.real() && ls.imag() == rs.image()){
-			return true;
-		}
-		return false;
+		return (ls.real() == rs.real()) && (ls.imag() == rs.image());
 	}
 	template<class T> _UCXXEXPORT bool operator==(const complex<T>& ls, const T& rs){
-		if(ls.real() == rs && ls.imag() == T()){
-			return true;
-		}
-		return false;
+		return (ls.real() == rs) && (ls.imag() == T());
 	}
 	template<class T> _UCXXEXPORT bool operator==(const T& ls, const complex<T>& rs){
-		if(ls == rs.real() && rs.imag() == T()){
-			return true;
-		}
-		return false;
+		return (ls == rs.real()) && (rs.imag() == T());
 	}
 	template<class T> _UCXXEXPORT bool operator!=(const complex<T>& ls, const complex<T>& rs){
-		if(ls == rs){
-			return false;
-		}
-		return true;
+		return ls != rs;
 	}
 	template<class T> _UCXXEXPORT bool operator!=(const complex<T>& ls, const T& rs){
-		if(ls == rs){
-			return false;
-		}
-		return true;
+		return ls != rs;
 	}
 	template<class T> _UCXXEXPORT bool operator!=(const T& ls, const complex<T>& rs){
-		if(ls == rs){
-			return false;
-		}
-		return true;
+		return ls != rs;
 	}
 	template<class T, class charT, class traits> _UCXXEXPORT basic_istream<charT, traits>&
 		 operator>>(basic_istream<charT, traits>& is, complex<T>& v)

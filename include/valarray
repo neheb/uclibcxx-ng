@@ -73,7 +73,7 @@ namespace std{
 	public:
 		typedef T value_type;
 
-		valarray() : data(0), length(0) {  }
+		valarray();
 
 		explicit valarray(size_t t) : data(0), length(t){
 			data = new T[length];
@@ -106,13 +106,13 @@ namespace std{
 		valarray(const gslice_array<T>&);
 		valarray(const mask_array<T>&);
 		valarray(const indirect_array<T>&);
-		~valarray(){
+		~valarray() _UCXX_NOEXCEPT {
 			delete [] data;
 			data = 0;
 			length = 0;
 		}
 
-		valarray<T>& operator=(const valarray<T>& v){
+		valarray<T>& operator=(const valarray<T>& v) _UCXX_NOEXCEPT {
 			if (length != v.length) { // DR 630
 				delete [] data;
 				length = v.length;
@@ -139,7 +139,7 @@ namespace std{
 		valarray<T>& operator=(const mask_array<T>&);
 		valarray<T>& operator=(const indirect_array<T>&);
 
-		const T& operator[](size_t t) const{
+		T& operator[](size_t t) const{
 			return data[t];
 		}
 		T& operator[](size_t t){

@@ -35,24 +35,6 @@ _UCXXEXPORT const char_traits<char>::char_type* char_traits<char>::find(const ch
 	return 0;
 }
 
-_UCXXEXPORT bool char_traits<char>::eq(const char_type& c1, const char_type& c2){
-	if(strncmp(&c1, &c2, 1) == 0){
-		return true;
-	}
-	return false;
-}
-
-_UCXXEXPORT char_traits<char>::char_type char_traits<char>::to_char_type(const int_type & i){
-	if(i > 0 && i <= 255){
-		return (char)(unsigned char)i;
-	}
-
-	//Out of range
-	return 0;
-}
-
-
-
 #ifdef __UCLIBCXX_HAS_WCHAR__
 
 _UCXXEXPORT const char_traits<wchar_t>::char_type* char_traits<wchar_t>::find(const char_type* s, int n, const char_type& a){

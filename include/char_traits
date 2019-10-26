@@ -45,29 +45,27 @@ namespace std{
 		typedef char_traits_off_type pos_type;
 		typedef char state_type;
 
-		static inline void assign(char_type & c, const char_type & d) { c = d; }
+		static void assign(char_type & c, const char_type & d) _UCXX_NOEXCEPT { c = d; }
 
-		static bool eq(const char_type& c1, const char_type& c2);
-
-		static char_type to_char_type(const int_type & i);
-
-		static inline int_type to_int_type(const char_type & c){
-			return static_cast<short int>(static_cast<unsigned char>(c));
+		static _UCXX_CONSTEXPR bool eq(const char_type& c1, const char_type& c2) _UCXX_NOEXCEPT {
+			return c1 == c2;
 		}
 
-		static inline bool eq_int_type(const int_type & a, const int_type & b){
-			if(a==b){
-				return true;
-			}
-			return false;
+		static _UCXX_CONSTEXPR char_type to_char_type(const int_type & i) _UCXX_NOEXCEPT {
+			return static_cast<char_type>(i);
+		}
+
+		static _UCXX_CONSTEXPR int_type to_int_type(const char_type & c) _UCXX_NOEXCEPT {
+			return static_cast<int_type>(static_cast<unsigned char>(c));
+		}
+
+		static _UCXX_CONSTEXPR bool eq_int_type(const int_type & a, const int_type & b) _UCXX_NOEXCEPT {
+			return a == b;
 		}
 
 
-		static inline bool lt(const char_type& c1, const char_type& c2){
-			if(strncmp(&c1, &c2, 1) < 0){
-				return true;
-			}
-			return false;
+		static _UCXX_CONSTEXPR bool lt(const char_type& c1, const char_type& c2) _UCXX_NOEXCEPT {
+			return static_cast<unsigned char>(c1) < static_cast<unsigned char>(c2);
 		}
 
 		static inline char_type* move(char_type* s1, const char_type* s2, size_t n){
@@ -95,14 +93,10 @@ namespace std{
 
 		static const char_type* find(const char_type* s, int n, const char_type& a);
 
-		static inline char_type eos() { return 0; }
-		static inline int_type eof() { return -1; }
-		static inline int_type not_eof(const int_type & i) {
-			if(i == -1){
-				return 0;
-			} else {
-				return i;
-			}
+		static _UCXX_CONSTEXPR char_type eos() _UCXX_NOEXCEPT { return 0; }
+		static _UCXX_CONSTEXPR int_type eof() _UCXX_NOEXCEPT { return -1; }
+		static _UCXX_CONSTEXPR int_type not_eof(const int_type & i) _UCXX_NOEXCEPT {
+			return (i == eof()) ? 0 : i;
 		}
 		static state_type get_state(pos_type p){
 			p = p;
@@ -120,35 +114,26 @@ namespace std{
 		typedef char_traits_off_type pos_type;
 		typedef mbstate_t state_type;
 
-		static void assign(char_type & c, const char_type & d){ c=d; }
+		static void assign(char_type & c, const char_type & d) _UCXX_NOEXCEPT { c=d; }
 
-		static char_type to_char_type(const int_type & i){
+		static _UCXX_CONSTEXPR char_type to_char_type(const int_type & i) _UCXX_NOEXCEPT {
 			return i;
 		}
 
-		static int_type to_int_type(const char_type & c){
+		static _UCXX_CONSTEXPR int_type to_int_type(const char_type & c) _UCXX_NOEXCEPT {
 			return c;
 		}
 
-		static inline bool eq_int_type(const int_type & a, const int_type & b){
-			if(a==b){
-				return true;
-			}
-			return false;
+		static _UCXX_CONSTEXPR bool eq_int_type(const int_type & a, const int_type & b) _UCXX_NOEXCEPT {
+			return a == b;
 		}
 
-		static inline bool eq(const char_type& c1, const char_type& c2){
-			if(wcsncmp(&c1, &c2, 1) == 0){
-				return true;
-			}
-			return false;
+		static _UCXX_CONSTEXPR bool eq(const char_type& c1, const char_type& c2) _UCXX_NOEXCEPT {
+			return c1 == c2;
 		}
 
-		static inline bool lt(const char_type& c1, const char_type& c2){
-			if(wcsncmp(&c1, &c2, 1) < 0){
-				return true;
-			}
-			return false;
+		static _UCXX_CONSTEXPR bool lt(const char_type& c1, const char_type& c2) _UCXX_NOEXCEPT {
+			return c1 < c2;
 		}
 
 		static inline char_type* move(char_type* s1, const char_type* s2, size_t n){
@@ -176,14 +161,10 @@ namespace std{
 
 		static const char_type* find(const char_type* s, int n, const char_type& a);
 
-		static inline char_type eos() { return 0; }
-		static inline int_type eof() { return WEOF; }
-		static inline int_type not_eof(const int_type & i) {
-			if(i == WEOF){
-				return (int_type)0;
-			} else {
-				return i;
-			}
+		static _UCXX_CONSTEXPR char_type eos() _UCXX_NOEXCEPT { return 0; }
+		static _UCXX_CONSTEXPR int_type eof() _UCXX_NOEXCEPT { return WEOF; }
+		static _UCXX_CONSTEXPR int_type not_eof(const int_type & i) _UCXX_NOEXCEPT {
+			return (i == eof()) ? 0 : i;
 		}
 		static state_type get_state(pos_type){
 			state_type a;

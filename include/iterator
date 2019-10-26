@@ -54,7 +54,7 @@ namespace std{
 		typedef charT char_type;
 		typedef traits traits_type;
 		typedef basic_istream<charT,traits> istream_type;
-		istream_iterator() : in_stream(0), value(0) {}
+		_UCXX_CONSTEXPR istream_iterator() : in_stream(0), value(0) {}
 		istream_iterator(istream_type& s) : in_stream(&s), value() {
 			*in_stream >> value;
 		}
@@ -145,7 +145,7 @@ namespace std{
 			charT operator*() { return val; }
 		};
 
-		istreambuf_iterator() _UCXX_USE_NOEXCEPT : sbuf(0) { }
+		_UCXX_CONSTEXPR istreambuf_iterator() _UCXX_USE_NOEXCEPT : sbuf(0) { }
 		istreambuf_iterator(istream_type& s) _UCXX_USE_NOEXCEPT : sbuf(s.rdbuf()) { }
 		istreambuf_iterator(streambuf_type* s) _UCXX_USE_NOEXCEPT : sbuf(s) { }
 		istreambuf_iterator(const proxy& p) _UCXX_USE_NOEXCEPT : sbuf(&p.buf) { }

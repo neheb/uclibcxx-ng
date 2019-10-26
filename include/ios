@@ -316,23 +316,14 @@ namespace std{
 			return (rdstate() == 0);
 		}
 		_UCXXEXPORT bool eof()  const{
-			if(rdstate() & eofbit){
-				return true;
-			}
-			return false;
+			return (rdstate() & eofbit);
 		}
 		_UCXXEXPORT bool fail() const{
-			if( mstate & (failbit | badbit) ){
-				return true;
-			}
-			return false;
+			return ( mstate & (failbit | badbit) );
 		}
 
 		_UCXXEXPORT bool bad()  const{
-			if(mstate & badbit){
-				return true;
-			}
-			return false;
+			return (mstate & badbit);
 		}
 
 		_UCXXEXPORT iostate exceptions() const{

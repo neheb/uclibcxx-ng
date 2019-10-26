@@ -282,10 +282,7 @@ protected:
 	template <class Key, class Compare, class Allocator> _UCXXEXPORT bool operator==
 		(const multiset<Key,Compare,Allocator>& x, const multiset<Key,Compare,Allocator>& y)
 	{
-		if(x.data == y.data){
-			return true;
-		}
-		return false;
+		return x.data == y.data;
 	}
 
 	template <class Key, class Compare, class Allocator> _UCXXEXPORT bool operator<

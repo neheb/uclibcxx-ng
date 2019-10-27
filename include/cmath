@@ -287,7 +287,7 @@ namespace std {
 	using ::truncl;
 # endif //	__cplusplus >= 201103L
 
-#ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
+#if !(defined(_AIX) || defined(__sun__))
 	inline float abs  (float x){
 		return fabsf(x);
 	}
@@ -342,8 +342,11 @@ namespace std {
 	inline float pow  (float x, float y){
 		return powf(x, y);
 	}
-#if 1 // DR 550 removed this
+#if __cplusplus < 201103L // DR 550 removed this
 	inline float pow  (float x, int y){
+		return pow((double)x, (double)y);
+	}
+	inline double pow(double x, int y){
 		return pow((double)x, (double)y);
 	}
 #endif
@@ -364,9 +367,6 @@ namespace std {
 	}
 	inline double abs(double x){
 		return fabs(x);
-	}
-	inline double pow(double x, int y){
-		return pow((double)x, (double)y);
 	}
 
 # ifdef __UCLIBCXX_HAS_LONG_DOUBLE__
@@ -424,9 +424,11 @@ namespace std {
 	inline long double pow  (long double x, long double y){
 		return powl(x, y);
 	}
+# if __cplusplus < 201103L // DR 550 removed this
 	inline long double pow  (long double x, int y){
 		return powl(x, (long double)y );
 	}
+# endif
 	inline long double sin  (long double x){
 		return sinl(x);
 	}
@@ -443,7 +445,7 @@ namespace std {
 		return tanhl(x);
 	}
 # endif	//	 __UCLIBCXX_HAS_LONG_DOUBLE__
-#endif	//	 __CORRECT_ISO_CPP_MATH_H_PROTO
+#endif	//	 !(defined(_AIX) || defined(__sun__))
 }
 
 #endif	//__STD_HEADER_CMATH

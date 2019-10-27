@@ -45,6 +45,113 @@
 #undef sqrt
 #undef tan
 #undef tanh
+# if __cplusplus >= 201103L
+#undef acosh
+#undef acoshf
+#undef acoshl
+#undef asinh
+#undef asinhf
+#undef asinhl
+#undef atanh
+#undef atanhf
+#undef atanhl
+#undef cbrt
+#undef cbrtf
+#undef cbrtl
+#undef copysign
+#undef copysignf
+#undef copysignl
+#undef erf
+#undef erff
+#undef erfl
+#undef erfc
+#undef erfcf
+#undef erfcl
+#undef exp2
+#undef exp2f
+#undef exp2l
+#undef expm1
+#undef expm1f
+#undef expm1l
+#undef fdim
+#undef fdimf
+#undef fdiml
+#undef fma
+#undef fmaf
+#undef fmal
+#undef fmax
+#undef fmaxf
+#undef fmaxl
+#undef fmin
+#undef fminf
+#undef fminl
+#undef hypot
+#undef hypotf
+#undef hypotl
+#undef ilogb
+#undef ilogbf
+#undef ilogbl
+#undef lgamma
+#undef lgammaf
+#undef lgammal
+#undef llrint
+#undef llrintf
+#undef llrintl
+#undef llround
+#undef llroundf
+#undef llroundl
+#undef log1p
+#undef log1pf
+#undef log1pl
+#undef log2
+#undef log2f
+#undef log2l
+#undef logb
+#undef logbf
+#undef logbl
+#undef lrint
+#undef lrintf
+#undef lrintl
+#undef lround
+#undef lroundf
+#undef lroundl
+#undef nan
+#undef nanf
+#undef nanl
+#undef nearbyint
+#undef nearbyintf
+#undef nearbyintl
+#undef nextafter
+#undef nextafterf
+#undef nextafterl
+#undef nexttoward
+#undef nexttowardf
+#undef nexttowardl
+#undef remainder
+#undef remainderf
+#undef remainderl
+#undef remquo
+#undef remquof
+#undef remquol
+#undef rint
+#undef rintf
+#undef rintl
+#undef round
+#undef roundf
+#undef roundl
+#undef scalbln
+#undef scalblnf
+#undef scalblnl
+#undef scalbn
+#undef scalbnf
+#undef scalbnl
+#undef tgamma
+#undef tgammaf
+#undef tgammal
+#undef trunc
+#undef truncf
+#undef truncl
+# endif //	__cplusplus >= 201103L
 
 namespace std {
 
@@ -70,6 +177,115 @@ namespace std {
 	using ::sqrt;
 	using ::tan;
 	using ::tanh;
+# if __cplusplus >= 201103L
+	using ::double_t;
+	using ::float_t;
+	using ::acosh;
+	using ::acoshf;
+	using ::acoshl;
+	using ::asinh;
+	using ::asinhf;
+	using ::asinhl;
+	using ::atanh;
+	using ::atanhf;
+	using ::atanhl;
+	using ::cbrt;
+	using ::cbrtf;
+	using ::cbrtl;
+	using ::copysign;
+	using ::copysignf;
+	using ::copysignl;
+	using ::erf;
+	using ::erff;
+	using ::erfl;
+	using ::erfc;
+	using ::erfcf;
+	using ::erfcl;
+	using ::exp2;
+	using ::exp2f;
+	using ::exp2l;
+	using ::expm1;
+	using ::expm1f;
+	using ::expm1l;
+	using ::fdim;
+	using ::fdimf;
+	using ::fdiml;
+	using ::fma;
+	using ::fmaf;
+	using ::fmal;
+	using ::fmax;
+	using ::fmaxf;
+	using ::fmaxl;
+	using ::fmin;
+	using ::fminf;
+	using ::fminl;
+	using ::hypot;
+	using ::hypotf;
+	using ::hypotl;
+	using ::ilogb;
+	using ::ilogbf;
+	using ::ilogbl;
+	using ::lgamma;
+	using ::lgammaf;
+	using ::lgammal;
+	using ::llrint;
+	using ::llrintf;
+	using ::llrintl;
+	using ::llround;
+	using ::llroundf;
+	using ::llroundl;
+	using ::log1p;
+	using ::log1pf;
+	using ::log1pl;
+	using ::log2;
+	using ::log2f;
+	using ::log2l;
+	using ::logb;
+	using ::logbf;
+	using ::logbl;
+	using ::lrint;
+	using ::lrintf;
+	using ::lrintl;
+	using ::lround;
+	using ::lroundf;
+	using ::lroundl;
+	using ::nan;
+	using ::nanf;
+	using ::nanl;
+	using ::nearbyint;
+	using ::nearbyintf;
+	using ::nearbyintl;
+	using ::nextafter;
+	using ::nextafterf;
+	using ::nextafterl;
+	using ::nexttoward;
+	using ::nexttowardf;
+	using ::nexttowardl;
+	using ::remainder;
+	using ::remainderf;
+	using ::remainderl;
+	using ::remquo;
+	using ::remquof;
+	using ::remquol;
+	using ::rint;
+	using ::rintf;
+	using ::rintl;
+	using ::round;
+	using ::roundf;
+	using ::roundl;
+	using ::scalbln;
+	using ::scalblnf;
+	using ::scalblnl;
+	using ::scalbn;
+	using ::scalbnf;
+	using ::scalbnl;
+	using ::tgamma;
+	using ::tgammaf;
+	using ::tgammal;
+	using ::trunc;
+	using ::truncf;
+	using ::truncl;
+# endif //	__cplusplus >= 201103L
 
 #ifndef __CORRECT_ISO_CPP_MATH_H_PROTO
 	inline float abs  (float x){

@@ -445,6 +445,216 @@ namespace std {
 		return tanhl(x);
 	}
 # endif	//	 __UCLIBCXX_HAS_LONG_DOUBLE__
+
+# if __cplusplus >= 201103L
+	inline float acosh(float x){
+		return acoshf(x);
+	}
+	inline float asinh(float x){
+		return asinhf(x);
+	}
+	inline float atanh(float x){
+		return atanhf(x);
+	}
+	inline float cbrt(float x){
+		return cbrtf(x);
+	}
+	inline float copysign(float x, float y){
+		return copysignf(x, y);
+	}
+	inline float erf(float x){
+		return erff(x);
+	}
+	inline float erfc(float x){
+		return erfcf(x);
+	}
+	inline float exp2(float x){
+		return exp2f(x);
+	}
+	inline float expm1(float x){
+		return expm1f(x);
+	}
+	inline float fdim(float x, float y){
+		return fdimf(x, y);
+	}
+	inline float fma(float x, float y, float z){
+		return fmaf(x, y, z);
+	}
+	inline float fmax(float x, float y){
+		return fmaxf(x, y);
+	}
+	inline float fmin(float x, float y){
+		return fminf(x, y);
+	}
+	inline float hypot(float x, float y){
+		return hypotf(x, y);
+	}
+	inline float ilogb(float x){
+		return ilogbf(x);
+	}
+	inline float lgamma(float x){
+		return lgammaf(x);
+	}
+	inline float llrint(float x){
+		return llrintf(x);
+	}
+	inline float llround(float x){
+		return llroundf(x);
+	}
+	inline float log1p(float x){
+		return log1pf(x);
+	}
+	inline float log2(float x){
+		return log2f(x);
+	}
+	inline float logb(float x){
+		return logbf(x);
+	}
+	inline float lrint(float x){
+		return lrintf(x);
+	}
+	inline float lround(float x){
+		return lroundf(x);
+	}
+	inline float nearbyint(float x){
+		return nearbyintf(x);
+	}
+	inline float nextafter(float x, float y){
+		return nextafterf(x, y);
+	}
+	inline float remainder(float x, float y){
+		return remainderf(x, y);
+	}
+	inline float remquo(float x, float y, int *z){
+		return remquof(x, y, z);
+	}
+	inline float rint(float x){
+		return rintf(x);
+	}
+	inline float round(float x){
+		return roundf(x);
+	}
+	inline float scalbln(float x, float y){
+		return scalblnf(x, y);
+	}
+	inline float scalbn(float x, float y){
+		return scalbnf(x, y);
+	}
+	inline float tgamma(float x){
+		return tgammaf(x);
+	}
+	inline float trunc(float x){
+		return truncf(x);
+	}
+
+# ifdef __UCLIBCXX_HAS_LONG_DOUBLE__
+	inline long double acosh(long double x){
+		return acoshl(x);
+	}
+	inline long double asinh(long double x){
+		return asinhl(x);
+	}
+	inline long double atanh(long double x){
+		return atanhl(x);
+	}
+	inline long double cbrt(long double x){
+		return cbrtl(x);
+	}
+	inline long double copysign(long double x, long double y){
+		return copysignl(x, y);
+	}
+	inline long double erf(long double x){
+		return erfl(x);
+	}
+	inline long double erfc(long double x){
+		return erfcl(x);
+	}
+	inline long double exp2(long double x){
+		return exp2l(x);
+	}
+	inline long double expm1(long double x){
+		return expm1l(x);
+	}
+	inline long double fdim(long double x, long double y){
+		return fdiml(x, y);
+	}
+	inline long double fma(long double x, long double y, long double z){
+		return fmal(x, y, z);
+	}
+	inline long double fmax(long double x, long double y){
+		return fmaxl(x, y);
+	}
+	inline long double fmin(long double x, long double y){
+		return fminl(x, y);
+	}
+	inline long double hypot(long double x, long double y){
+		return hypotl(x, y);
+	}
+	inline long double ilogb(long double x){
+		return ilogbl(x);
+	}
+	inline long double lgamma(long double x){
+		return lgammal(x);
+	}
+	inline long double llrint(long double x){
+		return llrintl(x);
+	}
+	inline long double llround(long double x){
+		return llroundl(x);
+	}
+	inline long double log1p(long double x){
+		return log1pl(x);
+	}
+	inline long double log2(long double x){
+		return log2l(x);
+	}
+	inline long double logb(long double x){
+		return logbl(x);
+	}
+	inline long double lrint(long double x){
+		return lrintl(x);
+	}
+	inline long double lround(long double x){
+		return lroundl(x);
+	}
+	inline long double nearbyint(long double x){
+		return nearbyintl(x);
+	}
+	inline long double nextafter(long double x, long double y){
+		return nextafterl(x, y);
+	}
+	inline long double nexttoward(long double x, long double y){
+		return nexttowardl(x, y);
+	}
+	inline long double remainder(long double x, long double y){
+		return remainderl(x, y);
+	}
+	inline long double remquo(long double x, long double y, int *z){
+		return remquol(x, y, z);
+	}
+	inline long double rint(long double x){
+		return rintl(x);
+	}
+	inline long double round(long double x){
+		return roundl(x);
+	}
+	inline long double scalbln(long double x, long double y){
+		return scalblnl(x, y);
+	}
+	inline long double scalbn(long double x, long double y){
+		return scalbnl(x, y);
+	}
+	inline long double tgamma(long double x){
+		return tgammal(x);
+	}
+	inline long double trunc(long double x){
+		return truncl(x);
+	}
+	inline float nexttoward(float x, long double y){
+		return nexttowardf(x, y);
+	}
+# endif //	__UCLIBCXX_HAS_LONG_DOUBLE__
+# endif //	__cplusplus >= 201103L
 #endif	//	 !(defined(_AIX) || defined(__sun__))
 }
 

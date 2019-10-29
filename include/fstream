@@ -542,7 +542,7 @@ template <> _UCXXEXPORT basic_filebuf<wchar_t, char_traits<wchar_t> >::int_type
 		}
 
 		_UCXXEXPORT basic_filebuf<charT,traits>* rdbuf() const{
-			return (basic_filebuf<charT,traits>*)&sb;
+			return reinterpret_cast<basic_filebuf<charT,traits>*>(&sb);
 		}
 		_UCXXEXPORT bool is_open() const{
 			return sb.is_open();
@@ -584,7 +584,7 @@ template <> _UCXXEXPORT basic_filebuf<wchar_t, char_traits<wchar_t> >::int_type
 		}
 
 		_UCXXEXPORT basic_filebuf<charT,traits>* rdbuf() const{
-			return (basic_filebuf<charT,traits>*)&sb;
+			return reinterpret_cast<basic_filebuf<charT,traits>*>(&sb);
 		}
 
 		_UCXXEXPORT bool is_open() const{
@@ -627,7 +627,7 @@ template <> _UCXXEXPORT basic_filebuf<wchar_t, char_traits<wchar_t> >::int_type
 		}
 
 		_UCXXEXPORT basic_filebuf<charT,traits>* rdbuf() const{
-			return (basic_filebuf<charT,traits>*)&sb;
+			return reinterpret_cast<basic_filebuf<charT,traits>*>(&sb);
 		}
 		_UCXXEXPORT bool is_open() const{
 			return sb.is_open();

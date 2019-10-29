@@ -37,11 +37,11 @@ extern "C" void * __cxa_allocate_exception(std::size_t thrown_size) _UCXX_USE_NO
 		std::terminate();
 	}
 	memset (e, 0, sizeof(__cxa_refcounted_exception));
-	return (void *)((unsigned char *)e + sizeof(__cxa_refcounted_exception));
+	return reinterpret_cast<void *>(reinterpret_cast<unsigned char *>(e) + sizeof(__cxa_refcounted_exception));
 }
 
 extern "C" void __cxa_free_exception(void *vptr) _UCXX_USE_NOEXCEPT{
-	free( (char *)(vptr) - sizeof(__cxa_refcounted_exception) );
+	free( reinterpret_cast<char *>(vptr) - sizeof(__cxa_refcounted_exception) );
 }
 
 
@@ -59,7 +59,7 @@ extern "C" __cxa_dependent_exception * __cxa_allocate_dependent_exception() _UCX
 }
 
 extern "C" void __cxa_free_dependent_exception(__cxa_dependent_exception *vptr) _UCXX_USE_NOEXCEPT{
-	free( (char *)(vptr) );
+	free( reinterpret_cast<char *>(vptr) );
 }
 
 }  /* namespace __cxxabiv1 */

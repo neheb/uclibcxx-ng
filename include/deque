@@ -521,7 +521,7 @@ namespace std{
 	template<class T, class Allocator> typename
 		deque<T, Allocator>::size_type deque<T, Allocator>::max_size() const
 	{
-		return ((size_type)(-1)) / sizeof(T);
+		return (static_cast<size_type>(-1)) / sizeof(T);
 	}
 
 	template<class T, class Allocator> void deque<T, Allocator>::resize(size_type sz, T c){

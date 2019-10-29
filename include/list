@@ -356,7 +356,7 @@ namespace std{
 		return elements;
 	}
 	template<class T, class Allocator> typename list<T, Allocator>::size_type list<T, Allocator>::max_size() const{
-		return ((size_type)(-1)) / (sizeof(T) + sizeof(node));
+		return (static_cast<size_type>(-1)) / (sizeof(T) + sizeof(node));
 	}
 	template<class T, class Allocator> void list<T, Allocator>::resize(typename Allocator::size_type sz, T c){
 //		if(sz > elements){

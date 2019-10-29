@@ -98,11 +98,6 @@ namespace std{
 		static _UCXX_CONSTEXPR int_type not_eof(const int_type & i) _UCXX_NOEXCEPT {
 			return (i == eof()) ? 0 : i;
 		}
-		static state_type get_state(pos_type p){
-			p = p;
-			state_type a;
-			return a;
-		}
 	};
 
 
@@ -165,10 +160,6 @@ namespace std{
 		static _UCXX_CONSTEXPR int_type eof() _UCXX_NOEXCEPT { return WEOF; }
 		static _UCXX_CONSTEXPR int_type not_eof(const int_type & i) _UCXX_NOEXCEPT {
 			return (i == eof()) ? 0 : i;
-		}
-		static state_type get_state(pos_type){
-			state_type a;
-			return a;
 		}
 	};
 #endif

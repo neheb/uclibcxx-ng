@@ -91,7 +91,14 @@ namespace std{
 			return strlen(s);
 		}
 
-		static const char_type* find(const char_type* s, int n, const char_type& a);
+		static inline const char_type* find(const char_type* s, size_t n, const char_type& a) {
+			for(int i=0; i < n; i++){
+				if(eq(s[i], a)){
+				return (s+i);
+				}
+			}
+			return 0;
+		}
 
 		static _UCXX_CONSTEXPR char_type eos() _UCXX_NOEXCEPT { return 0; }
 		static _UCXX_CONSTEXPR int_type eof() _UCXX_NOEXCEPT { return -1; }
@@ -154,7 +161,14 @@ namespace std{
 			return wcslen(s);
 		}
 
-		static const char_type* find(const char_type* s, int n, const char_type& a);
+		static inline const char_type* find(const char_type* s, size_t n, const char_type& a) {
+			for(int i=0; i < n; i++){
+				if(eq(s[i], a)){
+					return (s+i);
+				}
+			}
+			return 0;
+		}
 
 		static _UCXX_CONSTEXPR char_type eos() _UCXX_NOEXCEPT { return 0; }
 		static _UCXX_CONSTEXPR int_type eof() _UCXX_NOEXCEPT { return WEOF; }

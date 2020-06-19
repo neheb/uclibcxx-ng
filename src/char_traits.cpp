@@ -18,34 +18,10 @@
 
 */
 
-#define __UCLIBCXX_COMPILE_CHAR_TRAITS__ 1
-
-
 #include <basic_definitions>
 #include <char_traits>
 
 namespace std{
 
-_UCXXEXPORT const char_traits<char>::char_type* char_traits<char>::find(const char_type* s, int n, const char_type& a){
-	for(int i=0; i < n; i++){
-		if(eq(s[i], a)){
-			return (s+i);
-		}
-	}
-	return 0;
-}
-
-#ifdef __UCLIBCXX_HAS_WCHAR__
-
-_UCXXEXPORT const char_traits<wchar_t>::char_type* char_traits<wchar_t>::find(const char_type* s, int n, const char_type& a){
-	for(int i=0; i < n; i++){
-		if(eq(s[i], a)){
-			return (s+i);
-		}
-	}
-	return 0;
-}
-
-#endif
 
 }

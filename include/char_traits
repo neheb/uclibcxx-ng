@@ -73,14 +73,19 @@ namespace std{
 		}
 
 		static inline char_type* copy(char_type* s1, const char_type* s2, size_t n){
-			for(unsigned long int i=0; i< n; ++i){
-				assign(s1[i], s2[i]);
+			char_type* r = s1;
+			for(; n; --n, ++s1, ++s2) {
+				assign(*s1, *s2);
 			}
-			return s1 + n;
+			return r;
 		}
 
 		static inline char_type* assign(char_type* s, size_t n, char_type a){
-			return static_cast<char *>(memset(s, a, n));
+			char_type* r = s;
+			for(; n; --n, ++s) {
+				assign(*s, a);
+			}
+			return r;
 		}
 
 		static inline int compare(const char_type* s1, const char_type* s2, size_t n){
@@ -92,10 +97,11 @@ namespace std{
 		}
 
 		static inline const char_type* find(const char_type* s, size_t n, const char_type& a) {
-			for(int i=0; i < n; i++){
-				if(eq(s[i], a)){
-				return (s+i);
+			for(; n; --n) {
+				if(eq(*s, a)) {
+					return s;
 				}
+				++s;
 			}
 			return 0;
 		}
@@ -143,14 +149,19 @@ namespace std{
 		}
 
 		static inline char_type* copy(char_type* s1, const char_type* s2, size_t n){
-			for(unsigned long int i=0; i< n; ++i){
-				assign(s1[i], s2[i]);
+			char_type* r = s1;
+			for(; n; --n, ++s1, ++s2) {
+				assign(*s1, *s2);
 			}
-			return s1 + n;
+			return r;
 		}
 
 		static inline char_type* assign(char_type* s, size_t n, char_type a){
-			return (char_type *)memset(s, a, n);	/*FIXME*/
+			char_type* r = s;
+			for(; n; --n, ++s) {
+				assign(*s, a);
+			}
+			return r;
 		}
 
 		static inline int compare(const char_type* s1, const char_type* s2, size_t n){
@@ -162,10 +173,11 @@ namespace std{
 		}
 
 		static inline const char_type* find(const char_type* s, size_t n, const char_type& a) {
-			for(int i=0; i < n; i++){
-				if(eq(s[i], a)){
-					return (s+i);
+			for(; n; --n) {
+				if(eq(*s, a)) {
+					return s;
 				}
+				++s;
 			}
 			return 0;
 		}

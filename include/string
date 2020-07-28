@@ -301,7 +301,7 @@ public:
 		return *this;
 	}
 
-	_UCXXEXPORT iterator erase(iterator position){
+	_UCXXEXPORT iterator erase(const_iterator position){
 		if(position == vector<Ch, A>::end()){
 			return position;
 		}
@@ -318,7 +318,7 @@ public:
 		return temp;
 	}
 
-	_UCXXEXPORT iterator erase(iterator first, iterator last){
+	_UCXXEXPORT iterator erase(const_iterator first, const_iterator last){
 		size_t count = last - first;
 
 		iterator temp = last;

@@ -105,8 +105,8 @@ namespace std{
 		iterator insert(iterator position, const T& x = T());
 		void     insert(iterator position, size_type n, const T& x);
 		template <class InputIterator> void insert(iterator position, InputIterator first, InputIterator last);
-		iterator erase(iterator position);
-		iterator erase(iterator position, iterator last);
+		iterator erase(const_iterator position);
+		iterator erase(const_iterator position, const_iterator last);
 		void     swap(list<T,Allocator>&);
 		void     clear();
 
@@ -488,7 +488,7 @@ namespace std{
 		}
 	}
 	template<class T, class Allocator> typename list<T, Allocator>::iterator
-		list<T, Allocator>::erase(iterator position)
+		list<T, Allocator>::erase(const_iterator position)
 	{
 		if(position != end() ){
 			node * temp = position.link_struct();
@@ -517,7 +517,7 @@ namespace std{
 		return position;
 	}
 	template<class T, class Allocator> typename list<T, Allocator>::iterator
-		list<T, Allocator>::erase(iterator position, iterator last)
+		list<T, Allocator>::erase(const_iterator position, const_iterator last)
 	{
 		iterator temp = position;
 		while(position !=last){

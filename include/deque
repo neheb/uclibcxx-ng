@@ -100,8 +100,8 @@ namespace std{
 		void pop_front();
 		void pop_back();
 
-		iterator erase(iterator position);
-		iterator erase(iterator first, iterator last);
+		iterator erase(const_iterator position);
+		iterator erase(const_iterator first, const_iterator last);
 		void     swap(deque<T,Allocator>&);
 		void     clear();
 
@@ -661,7 +661,7 @@ namespace std{
 	}
 
 	template<class T, class Allocator> typename
-		deque<T, Allocator>::iterator deque<T, Allocator>::erase(typename deque<T, Allocator>::iterator position)
+		deque<T, Allocator>::iterator deque<T, Allocator>::erase(typename deque<T, Allocator>::const_iterator position)
 	{
 		if(position.element > (elements /2)){
 			for(size_type i = position.element; i < elements - 1; ++i){
@@ -679,7 +679,7 @@ namespace std{
 
 	template<class T, class Allocator> typename deque<T, Allocator>::iterator 
 		deque<T, Allocator>::
-		erase(typename deque<T, Allocator>::iterator first, typename deque<T, Allocator>::iterator last)
+		erase(typename deque<T, Allocator>::const_iterator first, typename deque<T, Allocator>::const_iterator last)
 	{
 		//Shift backwards
 		size_type num_move = last.element - first.element;

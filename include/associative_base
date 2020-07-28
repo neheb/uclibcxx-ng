@@ -185,8 +185,8 @@ public:
 		backing.clear();
 	}
 
-	void erase(iterator pos){
-		backing.erase(pos.base_iterator());
+	iterator erase(const_iterator pos){
+		return backing.erase(pos.base_iterator());
 	}
 	size_type erase(const key_type& x){
 		size_type count(0);
@@ -198,7 +198,7 @@ public:
 		}
 		return count;
 	}
-	void erase(iterator first, iterator last){
+	iterator erase(const_iterator first, const_iterator last){
 		while(first != last){
 			first = backing.erase(first.base_iterator());
 		}
